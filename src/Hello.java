@@ -42,5 +42,10 @@ public class Hello {
         long timsLong = 5000L + 10 * (timsByte + timsShort + timsInt);
 
         System.out.println("Tim's number is" + " " + timsLong);
+
+        float indigosWeight = 23.6f;
+        double kilo = 0.45359237d;
+        
+        System.out.println("Indy's kilo weight" + (indigosWeight*kilo));
     }
 }
