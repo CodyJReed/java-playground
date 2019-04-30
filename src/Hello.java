@@ -43,9 +43,29 @@ public class Hello {
 
         System.out.println("Tim's number is" + " " + timsLong);
 
+        // Precision floats and doubles
+
+        // Width of 4 bytes (32bit)
         float indigosWeight = 23.6f;
+        // Width of 8 bytes (32bit)
         double kilo = 0.45359237d;
         
         System.out.println("Indy's kilo weight" + (indigosWeight*kilo));
+
+        // Char and Boolean
+
+        // Can only hold one character
+        char myChar = '\u00A9';
+        System.out.println(myChar);
+
+        double twenty = 20d;
+        double eighty = 80d;
+        double remainder = (twenty + eighty) * 25 % 40;
+        if (remainder <= 20)
+            System.out.println("Total was over the limit " + remainder);
+
+
+
+
     }
 }
