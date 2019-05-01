@@ -109,6 +109,7 @@ public class Hello {
             bing++;
         }
         
+        System.out.println(canPack(2, 2, 12)); 
     }
 
     public static double calcInterest(double amount, double interestRate) {
@@ -216,5 +217,20 @@ public class Hello {
         int zz = seconds % 60;
         
        return getDurationString(yy, zz);
+    }
+
+    public static boolean canPack(int bigCount, int smallCount, int goal) {
+        int lrgBag = bigCount * 5;
+
+        if (bigCount < 0 || smallCount < 0 || goal < 0) {
+            return false;
+        } else if (lrgBag == goal || smallCount >= goal) {
+            return true;
+        } else if (lrgBag + smallCount < goal) {
+            return false;
+        } int remainder = (lrgBag + smallCount) - goal - smallCount % 5;
+            System.out.println(remainder); 
+            return false;
+        
     }
 }
