@@ -1,236 +1,31 @@
+
+import java.util.Scanner;
+
 public class Hello {
 
-    public static final String INVALID_MESSAGE_VALUE = "Invalid value";
-
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hello, Tim!");
+        int count = 1;
+        int sum = 0;
 
-        int myFirstJavaInt = 5;
+        while (count < 10) {
 
-        System.out.println(myFirstJavaInt);
+            System.out.println("Enter number #" + count);
 
-        myFirstJavaInt += 6;
+            boolean isAnInt = scanner.hasNextInt();
 
-        System.out.println(myFirstJavaInt);
-
-        var typeCoerce = "Six";
-
-        System.out.println(myFirstJavaInt);
-        System.out.println(typeCoerce);
-
-        var sum = (typeCoerce + myFirstJavaInt);
-
-        System.out.println(sum);
-
-        int myMinValue = -2_147_483_648;
-        int myMaxValue = 2_147_483_647;
-
-        System.out.println(myMinValue +" "+ myMaxValue);
-
-        byte whyThis = 100;
-
-        System.out.println(whyThis * whyThis);
-
-        // Comments still work like this!!!!
-
-        long ultimateInt = (myMaxValue+10L);
-
-        System.out.println(ultimateInt);
-
-        byte timsByte = 102;
-        short timsShort = 29000;
-        int timsInt = 999999999;
-        long timsLong = 5000L + 10 * (timsByte + timsShort + timsInt);
-
-        System.out.println("Tim's number is" + " " + timsLong);
-
-        // Precision floats and doubles
-
-        // Width of 4 bytes (32bit)
-        float indigosWeight = 23.6f;
-        // Width of 8 bytes (32bit)
-        double kilo = 0.45359237d;
-        
-        System.out.println("Indy's kilo weight" + (indigosWeight*kilo));
-
-        // Char and Boolean
-
-        // Can only hold one character
-        char myChar = '\u00A9';
-        System.out.println(myChar);
-
-        double twenty = 20d;
-        double eighty = 80d;
-        double remainder = (twenty + eighty) * 25 % 40;
-        if (remainder <= 20)
-            System.out.println("Total was over the limit " + remainder);
-
-        // Code blocks if else if else
-    //    int highScore = thisTrick(true, 10000, 8, 200);
-
-    //     System.out.println("This happens after the method call!");
-    //     if (highScore == 11600) {
-    //       System.out.println("Great job!");
-    //       }
-
-    //     int burger = calculateHighScorePosition(333);
-    //     displayhighScorePosition("jim", burger);
-        
-        // printConversion(1.5);
-
-        printMegaBytesAndKiloBytes(1024);
-        boolean wake = shouldWakeUp(true, 4);
-        System.out.println(wake);
-
-        // System.out.println(isLeapYear(1924));
-        // int twentyFour = 1800 % 400;
-        // System.out.println(twentyFour);
-
-        System.out.println(getDurationString(12045));
-
-        int test = 2;
-
-        switch (test) {
-            case 1:
-              System.out.println("This is going to happen if test equals " + test );
-              break;
-            case 3:
-              System.out.println("Hey, this is how a switch works!");
-              break;
-              default:
-                System.err.println("You always have to have a default");
-                break;
+            if (!isAnInt) {
+                System.out.println("Invalid Number");
+            } else {
+                int num = scanner.nextInt();
+                count++;
+                sum += num;
+            }
+            scanner.nextLine();
         }
+        System.out.println("Sum = " + sum);
+        scanner.close();
 
-        int bing = 2;
-        while (bing < 9) {
-            System.out.println("10,000 at " + bing + "% interest = " + calcInterest(10000, bing));
-            bing++;
-        }
-        
-        System.out.println(canPack(2, 2, 12)); 
-    }
-
-    public static double calcInterest(double amount, double interestRate) {
-        return amount * (interestRate/100);
-    }
-
-    // public static int thisTrick(boolean gameOver, int score, int levelCompleted, int bonus) {
-
-    //     int specialNumber = 333;
-
-    //     if (gameOver) {
-    //         int finalScore = score + (levelCompleted * bonus);
-    //         System.out.println("Your final score was " + finalScore);
-    //         return finalScore;
-    //     } else {
-    //         System.out.println("Your special " + specialNumber);
-    //         return specialNumber;
-    //     }
-    // }
-
-    // public static void displayhighScorePosition(String name, int highScorePosition) {
-    //     System.out.println(name + " managed to get into position " + highScorePosition + " on the high score table!");
-    // }
-
-    // public static int calculateHighScorePosition(int score) {
-    //     int position;
-    //     if (score >= 1000) {
-    //         position = 1;
-    //     } else if (score >= 500) {
-    //         position = 2;
-    //     } 
-    //         position = 3;
-    //         return position;
-    // }
-
-
-    // // write your code here
-    // public static long toMilesPerHour(double kilometersPerHour) {
-
-    //     if (kilometersPerHour < 0) {
-    //         return -1;
-    //     }
-        
-    //     return (long) kilometersPerHour % Math.round(1.609);
-    
-    // }
-    
-    // public static void printConversion(double kilometersPerHour) {
-        
-    //     long mph = toMilesPerHour(kilometersPerHour);
-    //     if (kilometersPerHour < 0) {
-    //        return System.out.println("Invalid Value");
-    //     }
-    //     System.out.println(kilometersPerHour + " km/h" + " = " + mph + " mi/h" );
-    // }
-
-    public static void printMegaBytesAndKiloBytes(int kiloBytes) {
-   if (kiloBytes < 0) {
-    System.out.println("Invalid Value");
-   } else {
-   
-   int YY = kiloBytes / 1024;
-   int zz = kiloBytes % 1024;
-   
-   System.out.println(kiloBytes + " KB " + "= " + YY + " MB " + "and " + zz + " KB");
-    }
-  }
-
-    public static boolean shouldWakeUp(boolean barking, int hourOfDay) {
-        if (hourOfDay < 8 || hourOfDay > 22) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // public static boolean isLeapYear(int year) {
-    //     if (year < 1 || year > 9999) {
-    //         return false;
-    //     } else if (year % 100 == 0 && year % 400 == 0) {
-    //         return true;
-    //     } else if (year % 4 == 0) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
-
-    public static String getDurationString(int minutes, int seconds) {
-        if (minutes < 0 || seconds < 0  || seconds > 59) {
-           return INVALID_MESSAGE_VALUE;
-        }
-        int XX = minutes / 60;
-        int YY = minutes % 60;
-        
-        return XX + "h " + YY + "m " + seconds + "s";
-
-    }
-
-    public static String getDurationString(int seconds) {
-        if (seconds < 0) {
-           return INVALID_MESSAGE_VALUE;
-        }
-        int yy = seconds / 60;
-        int zz = seconds % 60;
-        
-       return getDurationString(yy, zz);
-    }
-
-    public static boolean canPack(int bigCount, int smallCount, int goal) {
-        int lrgBag = bigCount * 5;
-
-        if (bigCount < 0 || smallCount < 0 || goal < 0) {
-            return false;
-        } else if (lrgBag == goal || smallCount >= goal) {
-            return true;
-        } else if (lrgBag + smallCount < goal) {
-            return false;
-        } int remainder = (lrgBag + smallCount) - goal - smallCount % 5;
-            System.out.println(remainder); 
-            return false;
-        
     }
 }
