@@ -1,5 +1,7 @@
 public class Hello {
 
+    public static final String INVALID_MESSAGE_VALUE = "Invalid value";
+
     public static void main(String[] args) {
 
         System.out.println("Hello, Tim!");
@@ -81,10 +83,36 @@ public class Hello {
         boolean wake = shouldWakeUp(true, 4);
         System.out.println(wake);
 
-        System.out.println(isLeapYear(1924));
-        int twentyFour = 1800 % 400;
-        System.out.println(twentyFour);
+        // System.out.println(isLeapYear(1924));
+        // int twentyFour = 1800 % 400;
+        // System.out.println(twentyFour);
+
+        System.out.println(getDurationString(12045));
+
+        int test = 2;
+
+        switch (test) {
+            case 1:
+              System.out.println("This is going to happen if test equals " + test );
+              break;
+            case 3:
+              System.out.println("Hey, this is how a switch works!");
+              break;
+              default:
+                System.err.println("You always have to have a default");
+                break;
+        }
+
+        int bing = 2;
+        while (bing < 9) {
+            System.out.println("10,000 at " + bing + "% interest = " + calcInterest(10000, bing));
+            bing++;
+        }
         
+    }
+
+    public static double calcInterest(double amount, double interestRate) {
+        return amount * (interestRate/100);
     }
 
     // public static int thisTrick(boolean gameOver, int score, int levelCompleted, int bonus) {
@@ -157,15 +185,36 @@ public class Hello {
         }
     }
 
-    public static boolean isLeapYear(int year) {
-        if (year < 1 || year > 9999) {
-            return false;
-        } else if (year % 100 == 0 && year % 400 == 0) {
-            return true;
-        } else if (year % 4 == 0) {
-            return true;
-        } else {
-            return false;
+    // public static boolean isLeapYear(int year) {
+    //     if (year < 1 || year > 9999) {
+    //         return false;
+    //     } else if (year % 100 == 0 && year % 400 == 0) {
+    //         return true;
+    //     } else if (year % 4 == 0) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
+    public static String getDurationString(int minutes, int seconds) {
+        if (minutes < 0 || seconds < 0  || seconds > 59) {
+           return INVALID_MESSAGE_VALUE;
         }
+        int XX = minutes / 60;
+        int YY = minutes % 60;
+        
+        return XX + "h " + YY + "m " + seconds + "s";
+
+    }
+
+    public static String getDurationString(int seconds) {
+        if (seconds < 0) {
+           return INVALID_MESSAGE_VALUE;
+        }
+        int yy = seconds / 60;
+        int zz = seconds % 60;
+        
+       return getDurationString(yy, zz);
     }
 }
