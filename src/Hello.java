@@ -20,7 +20,10 @@ public class Hello {
         System.out.println(Cody.getVipCustomer());
         System.out.println(Tim.getVipCustomer());
         
-    
+        
+        Dog Calico = new Dog("Calico", 4, 135, 2, 4, 0, 12, "Brown");
+
+        Calico.eat();
 
 
 

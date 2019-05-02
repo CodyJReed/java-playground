@@ -1,1 +1,1 @@
- 
+Inheritance test = new Inheritance("name", 0, 1, 1, 5);
