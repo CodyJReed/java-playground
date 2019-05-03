@@ -1,21 +1,29 @@
-public class Car {
-
-    private int doors;
+public class Car extends Vehicle {
+    
     private int wheels;
-    private String model;
-    private String engine;
-    private String color;
+    private int doors;
+    private int gears;
+    private boolean isManual;
 
-    public void setModal(String model) {
-        String validModel = model.toLowerCase();
-        
-        if (validModel.equals("accord") || validModel.equals("civic")) {
-            this.model = model;
-        } 
-        this.model = "Unknown";
+    private int currentGear;
+
+    public Car(String name, String size, int wheels, int doors, int gears, boolean isManual) {
+        super(name, size);
+        this.wheels = wheels;
+        this.doors = doors;
+        this.gears = gears;
+        this.isManual = isManual;
+        this.currentGear = 1;
+    }
+    
+    public void changeGear(int currentGear) {
+        this.currentGear = currentGear;
+        System.out.println("Car.setCurrentGear(): Changed to " + this.currentGear + " gear.");
     }
 
-    public String getModel() {
-        return this.model;
+    public void changeVelocity(int speed, int direction) {
+        System.out.println("Car.changeVelocity() : Velocity " + speed + " direction " + direction);
+        move(speed, direction);
+        
     }
 }

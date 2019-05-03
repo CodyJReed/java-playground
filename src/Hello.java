@@ -5,25 +5,14 @@ public class Hello {
 
     public static void main(String[] args) {
 
-        Car porsche = new Car();
-        Car honda = new Car();
-        honda.setModal("civic");
-        porsche.setModal("911");
-        
-        System.out.println(porsche.getModel());
-
-        VipCustomer Jon = new VipCustomer("Jon", "$4.00");
-        VipCustomer Cody = new VipCustomer();
-        VipCustomer Tim = new VipCustomer("Tim", "$100.00", "Tim@code.com");
-
-        System.out.println(Jon.getVipCustomer()); 
-        System.out.println(Cody.getVipCustomer());
-        System.out.println(Tim.getVipCustomer());
-        
-        
-        Dog Calico = new Dog("Calico", 4, 135, 2, 4, 0, 12, "Brown");
-
-        Calico.eat();
+       Impreza impreza = new Impreza(24);
+       impreza.accelerate(80);
+       impreza.steer(70);
+       impreza.accelerate(-50);
+       impreza.steer(0);
+       impreza.accelerate(50);
+       impreza.stop();
+       impreza.accelerate(10);
 
 
 
