@@ -1,16 +1,80 @@
 
 import java.util.Scanner;
 
+class Car {
+    private boolean engine;
+    private int cylinders;
+    private String name;
+    private int wheels;
+
+    public Car(int cylinders, String name) {
+        this.engine = true;
+        this.wheels = 4;
+        this.name = name;
+        this.cylinders = cylinders;
+    }
+
+    public int getCylinders() {
+        return cylinders;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String accelerates() {
+        return "Car accelerates";
+    }
+
+    public String startCar() {
+        return "Car starts...";
+    }
+}
+
+class Honda extends Car {
+
+    public Honda() {
+        super(4,"Civic");
+    }
+
+    @Override
+    public String accelerates() {
+        return  getName() + " burns out.";
+    }
+
+    public String startCar() {
+        return "Honda begins to rumble";
+    }
+}
+
+class Tundra extends Car {
+
+    public Tundra() {
+        super(8, "Tundra");
+    }
+
+    public String startCar() {
+        return "Throaty roar errupts as the truck springs to life.";
+    }
+}
+
 public class Hello {
+
 
     public static void main(String[] args) {
 
-       Printer printer = new Printer();
-       printer.print(2);
-       System.out.println(printer.checkPaperTray()); 
-       printer.print(8);
-       printer.addPaper(20);
-       printer.print(16);
+        Car car = Honda();
+        System.out.println(car.startCar() + " " + car.accelerates());
+
+    //    Printer printer = new Printer();
+    //    printer.print(2);
+    //    System.out.println(printer.checkPaperTray()); 
+    //    printer.print(8);
+    //    printer.addPaper(20);
+    //    printer.print(16);
+
+       
+       
 
 
 
@@ -42,5 +106,9 @@ public class Hello {
         // System.out.println("Sum = " + sum);
         // scanner.close();
 
+    }
+
+    public static Car Honda() {
+        return new Honda();
     }
 }
