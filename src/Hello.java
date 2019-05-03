@@ -5,14 +5,12 @@ public class Hello {
 
     public static void main(String[] args) {
 
-       Impreza impreza = new Impreza(24);
-       impreza.accelerate(80);
-       impreza.steer(70);
-       impreza.accelerate(-50);
-       impreza.steer(0);
-       impreza.accelerate(50);
-       impreza.stop();
-       impreza.accelerate(10);
+       Printer printer = new Printer();
+       printer.print(2);
+       System.out.println(printer.checkPaperTray()); 
+       printer.print(8);
+       printer.addPaper(20);
+       printer.print(16);
 
 
 
